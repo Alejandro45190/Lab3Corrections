@@ -2,7 +2,7 @@ package com.mycompany.datastructureslab3;
 
 public class Stack {
     
-    private final int[] values;
+    private int[] values;
     private int index;
 
     public Stack(int size) {
@@ -11,7 +11,9 @@ public class Stack {
     
     public void push (int value) {
         if (index == values.length) {
-            throw new StackException("Stack is full");
+            int[] nvalues = new int[values.length * 2];
+            System.arraycopy(values, 0, nvalues, 0, values.length);
+            values = nvalues;
         }
         values[index] = value;
         index++;
