@@ -1,0 +1,31 @@
+package com.mycompany.datastructureslab3;
+
+public class Stack {
+    
+    private final int[] values;
+    private int index;
+
+    public Stack(int size) {
+        values = new int[size];
+    }
+    
+    public void push (int value) {
+        if (index == values.length) {
+            throw new StackException("Stack is full");
+        }
+        values[index] = value;
+        index++;
+    }
+    
+    public int pop() {
+        if (index == 0) {
+            throw new StackException("Stack is empty");
+        }
+        index--;
+        return values[index];
+    }
+    
+    public boolean isEmpty() {
+        return index == 0;
+    }
+}
